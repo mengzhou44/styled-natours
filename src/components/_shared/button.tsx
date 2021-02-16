@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { greyDark,  primary} from '../styles/variables'
+import { greyDark,  primary} from '../_styles/variables'
 
 interface ButtonProps {
      size?: string

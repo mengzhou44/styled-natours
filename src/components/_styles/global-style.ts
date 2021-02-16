@@ -1,7 +1,7 @@
 import { createGlobalStyle } from 'styled-components'
 
 import  * as variables  from './variables'
- 
+
 import './grid.scss'
  
 

@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { greyLight1, primary } from '../styles/variables'
+import { greyLight1, primary } from '../_styles/variables'
 
 
 const About = styled.section`
