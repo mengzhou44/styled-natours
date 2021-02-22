@@ -4,7 +4,7 @@ import { greyDark,  primary} from '../_styles/variables'
 
 interface ButtonProps {
      size?: string
-     kind: string,
+     kind?: string,
      animated?:  boolean; 
 }
 
@@ -18,51 +18,49 @@ const Button = styled.button<ButtonProps>`
      transition: transform .2s; 
      box-shadow: 0 .5rem 1rem  rgba(0,0,0, .2);
 
-     &:hover {
+     &:hover, &:focus {
         transform: translateY(-.3rem);
         box-shadow: 0 1rem 2rem rgba(0,0,0, .2);
      }
 
      ${(props: ButtonProps)=> {
-          switch( props.size) {
-                case 'small':
+          const {size} = props
+
+          if (size === 'small')
                    return `
                         padding: 1rem 2rem;
                     `
-                
-                default: 
-                    return  `
+
+          return    `
                          padding: 1.5rem 4rem;
                          text-transform: uppercase;
                     `
-           }
-
      }}
     
      ${(props: ButtonProps)=> {
-         switch( props.kind) {
-              case 'white':
-                   return `
+         const {kind} = props
+
+         if (kind === 'white')  return  `
                          background-color: #fff;
                          color:  ${greyDark};
                    `
-               default: 
-                  return `
+
+         return `
                          background-color: ${primary};
                          color:   #fff;
                   `
-         }
+         
 
      }}
 
     ${(props: ButtonProps)=> {
-          if (props.animated === true) {
-               return  `
+        const {animated} = props
+
+        if (animated === true)  return  `
                  animation: moveInBottom;
                  animation-timing-function: ease-out;
                  animation-duration: 1s; 
-               `
-          }
+               ` 
      }}
       
 `
