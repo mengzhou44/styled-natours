@@ -1,50 +1,84 @@
 import { useState} from 'react'
 import styled from 'styled-components'
-import { primaryLight, primaryDark,  white, greyDark, greyLight1, primary } from '../_styles/variables'
+import { primaryLight, primaryDark,  white,  greyLight1, primary, greyDark3 } from '../_styles/variables'
 
-const ClosedMenu = styled.div`
-     
-     position: fixed;
-     top: 6rem;
-     right: 6rem;
-     height: 7rem; 
-     width: 7rem; 
-     border-radius: 50%;
-     background-color: ${white};
-    
-     z-index: 2; 
+
+const Wrapper = styled.div`
    
-`
+    .background {
+      height: 6rem;
+      width: 6rem;
+      border-radius: 50%;
+      position: fixed;
+      top: 6.5rem;
+      right: 6.5rem;
+      background-image: radial-gradient(${primaryLight}, ${primaryDark});
+      z-index: 1000;
+      transition: transform .8s cubic-bezier(0.86, 0, 0.07, 1);
+    }
 
-const Menu = styled.div`
+    .nav-button  {
+        background-color:  ${white};
+        height: 7rem;
+        width: 7rem; 
+        border-radius: 50%;
+        position: fixed;
+        top: 6rem;
+        right: 6rem;
+        z-index: 2000;
+        text-align: center;
+        cursor: pointer;
+     }
      
-     position: fixed;
-     top:0;
-     right:0; 
-     height: 100%;
-     width: 100%;
-     z-index: 2;
-     background-image: radial-gradient(farthest-corner at 4rem 4rem,
-    ${primaryLight}, ${primaryDark});
-     
-     i {
-         color: white;
-         font-size: 4rem; 
-         font-weight:700; 
-         cursor: pointer; 
+     .nav-icon {
+        margin-top: 3.5rem;
+        position: relative; 
+
+        &,
+        &::before,
+        &::after {
+           width: 3rem;
+           height: 2px; 
+           background-color: ${greyDark3}; 
+           display: inline-block;
+        }
+        &::before,
+        &::after {
+           content:'';
+           position: absolute; 
+           left: 0;
+           transition: all .2s;
+        }
+
+        &::before {
+           top: -.8rem;
+        }
+
+        &::after {
+            top: .8rem;
+         }
+         
      }
 
-     .close {
-         position: absolute; 
-         top: 5rem;
-         right: 5rem;
-     }
+     .navigation {
+         height: 100vh;
+         position: fixed;
+         top: 0;
+         left: 0;
+         z-index: 1500;
 
+         opacity: 0;
+         width: 0;
+         transition: all .8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+     }
+      
+     
      ul {
-         position: absolute;
+         position: absolute; 
          top: 50%;
          left: 50%;
-         transform:  translate(-50%, -50%); 
+         transform: translate(-50%, -50%);
+         list-style: none;
          text-align: center; 
      }
 
@@ -75,38 +109,72 @@ const Menu = styled.div`
          background-position: 100%; 
          transform: translateX(1rem);
      }
+
+ 
+
+     .open .background {
+          transform: scale(80);
+     }
+ 
+     .open  .navigation {
+         opacity: 1;
+         width: 100%;
+     }
+
+     .open  .nav-icon {
+        background-color: transparent;
+     }
+
+     .open .nav-icon::before {
+          top: 0rem;
+         transform: rotate(-135deg);
+     }
+
+     .open .nav-icon::after {
+        transform: rotate(135deg);
+        top: 0rem;
+     }
     
 `
 
 export default function Navigator() {
-    const [ menuOpen, setMenuOpen] = useState(false)
-
-    if ( menuOpen === false)   return  <ClosedMenu  onClick={()=> setMenuOpen(true)} >
-             
-    </ClosedMenu>
+    const [ open,  setOpen] = useState(false)
     
-    return <Menu>
-           <div className='close'>
-               <i className='icon-basic-world' onClick={()=> setMenuOpen(false)} />      
-           </div>
+    function getWrapperClass() {
+         if (open === true)   return 'open'
+         return ''
+    }
+    return <Wrapper>
+         <div  className={getWrapperClass()}>
+          <label className='nav-button' onClick={()=> setOpen(!open)}>
+                  <span className='nav-icon'>
+                  </span>
+          </label>
 
-           <ul>
-                   <li>
-                       <a href='#'>About Natours</a>
-                   </li>
-                   <li>
-                       <a href='#'>Your Benefits</a>
-                   </li>
-                   <li>
-                       <a href='#'>Popular Tours</a>
-                   </li>
-                   <li>
-                       <a href='#'>Stories</a>
-                   </li>
-                   <li>
-                       <a href='#'>Book Now</a>
-                   </li>
-            </ul>
-    </Menu>
+          <div className='background'>
+                  &nbsp;
+          </div>
+          <div className='navigation'>
+
+            <ul>
+                    <li>
+                        <a href='#'>About Natours</a>
+                    </li>
+                    <li>
+                        <a href='#'>Your Benefits</a>
+                    </li>
+                    <li>
+                        <a href='#'>Popular Tours</a>
+                    </li>
+                    <li>
+                        <a href='#'>Stories</a>
+                    </li>
+                    <li>
+                        <a href='#'>Book Now</a>
+                    </li>
+                </ul> 
+           </div>
+           </div>
+        </Wrapper>
 
 }

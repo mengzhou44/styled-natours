@@ -37,6 +37,44 @@ const About = styled.section`
         }
     }
 
+    .image-container {
+        position: relative; 
+        &:hover img:not(:hover) {
+            transform: scale(0.8);
+        }
+    }
+
+    img {
+        width: 55%;
+        height: auto; 
+        box-shadow:  0 2rem 4rem rgba(0,0,0,.4);
+        border-radius: 2px; 
+        position: absolute; 
+        transition: all .2s; 
+        outline-offset: 2rem;
+
+        &:hover{
+            outline: 1rem solid ${primary};
+            transform: scale(1.05);
+            box-shadow: 0 2.5rem  4rem rgba(0,0,0, .5); 
+            z-index: 2;
+        }
+    }
+
+    .image1 {
+          left: 0;
+          top: -2rem;
+    }
+
+    .image2 {
+        right: 0rem;
+        top:  2rem;
+    }
+
+    .image3{
+        left: 20%;
+        top: 10rem; 
+    }
 
 `
 
@@ -64,7 +102,12 @@ export default function Sectionbout() {
                         <a href='#' className='btn-text'>Learn more &rarr;</a>
               </div>
               <div className='col-1-of-2'>
-                  col2 
+                  <div className="image-container">
+                     <img src='./images/nat-1-large.jpg' alt='photo1'  className='image1' />
+                     <img src='./images/nat-2-large.jpg' alt='photo2'  className='image2' />
+                     <img src='./images/nat-3-large.jpg' alt='photo3'  className='image3' />
+                  </div>
+                
              </div>
           </div>
            
