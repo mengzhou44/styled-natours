@@ -5,7 +5,6 @@ import  * as variables  from './variables'
 import './grid.scss'
 import './basic-icons.css'
  
-
 const GlobalStyle = createGlobalStyle`
 
   *,
@@ -36,6 +35,7 @@ const GlobalStyle = createGlobalStyle`
      box-sizing: border-box;
   }
 
+   
 
   h1 {
      text-transform: uppercase; 
@@ -76,6 +76,23 @@ const GlobalStyle = createGlobalStyle`
         }
    }
  
+
+   .u-center-text {
+     text-align: center !important;
+   }
+
+    .u-margin-bottom-big {
+      margin-bottom: 8rem !important;
+    }
+
+    .u-margin-bottom-medium {
+        margin-bottom: 4rem !important;
+    }
+
+    .u-margin-bottom-small{
+        margin-bottom: 1.5rem !important;
+   }
+
   @keyframes moveInLeft {
    0% {
        opacity: 0; 
