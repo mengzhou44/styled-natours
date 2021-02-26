@@ -1,5 +1,5 @@
 import  styled from 'styled-components'
-import { greyDark3, greyLight1, greyLight2, primary, white } from '../_styles/variables'
+import { greyDark3, greyLight1, greyLight2, primary } from '../_styles/variables'
  
 
 const Footer = styled.footer`

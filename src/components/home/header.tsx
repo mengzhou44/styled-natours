@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 import  Button from '../_shared/button'
+import { DeviceType, respond } from '../_styles/media'
 
 interface WrapperProps {
     background:string 
@@ -47,9 +48,13 @@ const Wrapper  = styled.header<WrapperProps>`
             animation: moveInLeft;
             animation-duration: 1s; 
             animation-timing-function: ease-out;
+
+            ${respond(DeviceType.phone, `
+                  letter-spacing: 1rem; 
+            `)}
       }
 
-    h1 span:nth-child(2){ 
+     h1 span:nth-child(2){ 
             margin-top: .5rem;
             display: block;
             font-size: 2rem; 
@@ -58,6 +63,10 @@ const Wrapper  = styled.header<WrapperProps>`
             animation: moveInRight;
             animation-duration: 1s; 
             animation-timing-function: ease-out;
+
+            ${respond(DeviceType.phone, `
+                  letter-spacing: .5rem; 
+            `)}
     } 
 
 `

@@ -40,7 +40,8 @@ const Stories = styled.section`
         font-size: ${defaultFontSize};
         padding: 6rem; 
         transform: skewX(-12deg);
-        transition: all 1s; 
+        transition: all 1s;
+    
     }
 
     .shape {
@@ -86,11 +87,6 @@ const Stories = styled.section`
     .story:hover img {
       transform:   translateX(-4rem)   scale(1);
       filter:   blur(3px)  brightness(80%);
-    }
-
-    .read {
-
-        border: 1px solid red; 
     }
     
 `

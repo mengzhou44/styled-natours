@@ -1,11 +1,16 @@
 import { createGlobalStyle } from 'styled-components'
 
 import  * as variables  from './variables'
+import { DeviceType, respond} from './media'
 
 import './grid.scss'
 import './basic-icons.css'
+
  
 const GlobalStyle = createGlobalStyle`
+
+
+
 
   *,
   *::before,
@@ -21,7 +26,23 @@ const GlobalStyle = createGlobalStyle`
   }
 
   html {
-      font-size: 62.5%;
+        font-size: 62.5%;
+
+        ${respond(DeviceType.largeTablet, `
+            font-size: 56.25%;
+        `)}
+
+        ${respond(DeviceType.smallTablet, `
+            font-size: 50%;
+        `)}
+
+         ${respond(DeviceType.phone, `
+            font-size: 30%;
+        `)}
+
+         ${respond(DeviceType.largeDesktop, `
+            font-size: 75%;
+        `)}
   }
 
   body {
@@ -33,6 +54,10 @@ const GlobalStyle = createGlobalStyle`
      text-rendering: optimizeLegibility;
      padding: 2rem;
      box-sizing: border-box;
+
+     ${respond(DeviceType.smallTablet, `
+            padding: 0rem;
+     `)}
   }
 
    
@@ -43,6 +68,7 @@ const GlobalStyle = createGlobalStyle`
      color: #fff;
      font-size: 200%;
      line-height: 145%;
+
   }
 
   .heading-secondary {
