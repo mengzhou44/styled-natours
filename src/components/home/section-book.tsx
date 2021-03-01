@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Button from '../_shared/button'
+import { DeviceType, respond } from '../_styles/media'
 import { primary, primaryDark, primaryLight, secondaryDark } from '../_styles/variables'
 
 
@@ -15,15 +16,47 @@ const Book = styled.section`
                  rgba(255,255,255, .9) 50%,
                    transparent 50%),
              url('./images/nat-10.jpg');
+
+      
+         
         background-size: cover; 
         height: 50rem; 
         border-radius:  .3rem; 
         box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, .3);
+
+        ${respond(DeviceType.largeTablet, `
+                   background-image: 
+                        linear-gradient(105deg, 
+                            rgba(255,255,255, .9) 0%,
+                            rgba(255,255,255, .9) 65%,
+                            transparent 65%),
+                        url('./images/nat-10.jpg');
+                    background-size: 100%;
+                        
+         `)}
+
+          ${respond(DeviceType.smallTablet, `
+                   background-image: 
+                        linear-gradient(to right, 
+                            rgba(255,255,255, .9) 0%,
+                            rgba(255,255,255, .9) 100%),
+                        url('./images/nat-10.jpg');
+                   
+                        
+         `)}
      }
 
      .form {
         padding: 6rem;
-        width: 50%;
+        width: 50%; 
+
+
+        ${respond(DeviceType.largeTablet, `
+                  width: 65%; 
+         `)}
+        ${respond(DeviceType.smallTablet, `
+            width: 100%; 
+         `)}
      }
 
   
@@ -42,6 +75,11 @@ const Book = styled.section`
          display: block;
          width: 90%;
          transition: all .3s; 
+
+         ${respond(DeviceType.smallTablet, `
+               width: 100%;
+         `)}
+         
        
          &:focus {
              box-shadow: 0 1rem 2rem rgba(0,0,0, .1);
@@ -79,12 +117,21 @@ const Book = styled.section`
          margin-left: -1rem;
          display: flex;
          flex-direction: row; 
+
+         ${respond(DeviceType.smallTablet, `
+                 flex-direction: column; 
+
+                 .radio:not(:last-child) {
+                     margin-bottom: 1rem; 
+                 }
+         `)}
          
          .radio {
              width: 50%;
              display: flex;
              align-items:center; 
              justify-content: flex-start;
+
              input {
                  visibility: hidden;
              }
@@ -122,6 +169,8 @@ const Book = styled.section`
             input:checked ~ .radio-button::after  {
                 opacity: 1; 
             }
+
+          
          }
     
          button {

@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { DeviceType, respond } from '../_styles/media'
 import { defaultFontSize,   white } from '../_styles/variables'
 
 
@@ -28,6 +29,7 @@ const Stories = styled.section`
         
         margin-left: 8rem;
         text-align: center;  
+        margin-bottom: 5rem;
     }
 
     .story{ 
@@ -41,7 +43,15 @@ const Stories = styled.section`
         padding: 6rem; 
         transform: skewX(-12deg);
         transition: all 1s;
-    
+       
+        ${respond(DeviceType.smallTablet, `
+            width: 100%; 
+            padding: 4rem; 
+        `)}
+         ${respond(DeviceType.phone, `
+             transform: skewX(0);
+        `)}
+
     }
 
     .shape {
@@ -56,6 +66,10 @@ const Stories = styled.section`
         transform: translateX(-3rem) skewX(12deg);
         position: relative;
         
+        ${respond(DeviceType.phone, `
+            transform: translateX(-3rem) skewX(0);
+        `)}
+
         img {
             height: 100% !important;
             transform: translateX(-4rem) scale(1.4);
@@ -78,6 +92,9 @@ const Stories = styled.section`
     
     .text {
         transform:  skewX(12deg);
+        ${respond(DeviceType.phone, `
+             transform:  skewX(0);
+        `)}
     }
     .story:hover figCaption {
         transform: translate(-50%,-50%);

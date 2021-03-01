@@ -7,7 +7,7 @@ import { greyLight1, greyLight2, primary, white } from '../_styles/variables'
 
 const About = styled.section`
     background-color: ${greyLight1};
-    padding: 25rem 0; 
+    padding: 10rem 0; 
     margin-top: -20vh;
 
 
@@ -15,13 +15,16 @@ const About = styled.section`
          padding-bottom: 50rem; 
     `)}
    
+    ${respond(DeviceType.phone, `
+         padding-top: 20rem; 
+    `)}
 
     .row {
         width: 80%;
     }
 
     .text-box {
-        margin-bottom: 8rem;
+        margin: 8rem 0rem;
         text-align: center;  
     }
 
@@ -120,6 +123,10 @@ const About = styled.section`
            display: block;
            width: 100%;
         }
+        ${respond(DeviceType.smallTablet, `
+             width: 0; 
+       `)}
+   
     }
     .popup-right{ 
         padding: 0rem 5rem; 
@@ -127,6 +134,9 @@ const About = styled.section`
         width: 66.6666667%;
         display: table-cell; 
         vertical-align: middle; 
+        ${respond(DeviceType.smallTablet, `
+             width: 100%;
+       `)}
     }
 
     .popup-text {

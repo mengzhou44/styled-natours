@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { DeviceType, respond } from '../_styles/media'
 
 import {white, primaryLight, primaryDark} from '../_styles/variables'
 
@@ -11,6 +12,10 @@ const  Features = styled.section`
        rgba(40,180,131,0.8)),
        url('./images/nat-4.jpg');
     transform: skewY(-7deg);
+
+    ${respond(DeviceType.smallTablet, `
+           padding: 10rem 0;
+    `)}
 
     & > * {
         transform: skewY(7deg);
