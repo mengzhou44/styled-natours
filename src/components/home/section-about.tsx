@@ -1,13 +1,20 @@
 import React, {useState } from 'react'
 import styled from 'styled-components'
 import Button from '../_shared/button'
-import { greyDark2, greyDark3, greyLight1, greyLight2, primary, white } from '../_styles/variables'
+import { DeviceType, respond } from '../_styles/media'
+import { greyLight1, greyLight2, primary, white } from '../_styles/variables'
 
 
 const About = styled.section`
     background-color: ${greyLight1};
     padding: 25rem 0; 
     margin-top: -20vh;
+
+
+    ${respond(DeviceType.smallTablet, `
+         padding-bottom: 50rem; 
+    `)}
+   
 
     .row {
         width: 80%;

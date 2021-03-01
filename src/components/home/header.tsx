@@ -18,6 +18,10 @@ const Wrapper  = styled.header<WrapperProps>`
     background-position: top;  
     clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
     position: relative;
+
+    ${respond(DeviceType.phone, `
+             clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+    `)}
    
     img {
         position: absolute; 

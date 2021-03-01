@@ -1,5 +1,6 @@
 import { useState} from 'react'
 import styled from 'styled-components'
+import { DeviceType, respond } from '../_styles/media'
 import { primaryLight, primaryDark,  white,  greyLight1, primary, greyDark3 } from '../_styles/variables'
 
 
@@ -10,11 +11,17 @@ const Wrapper = styled.div`
       width: 6rem;
       border-radius: 50%;
       position: fixed;
-      top: 6.5rem;
-      right: 6.5rem;
+      top: 5.5rem;
+      right: 5.5rem;
       background-image: radial-gradient(${primaryLight}, ${primaryDark});
       z-index: 1000;
       transition: transform .8s cubic-bezier(0.86, 0, 0.07, 1);
+
+      ${respond(DeviceType.smallTablet, `
+            top: 2.5rem;
+            right: 2.5rem;
+         
+       `)}
     }
 
     .nav-button  {
@@ -23,11 +30,16 @@ const Wrapper = styled.div`
         width: 7rem; 
         border-radius: 50%;
         position: fixed;
-        top: 6rem;
-        right: 6rem;
+        top: 5rem;
+        right: 5rem;
         z-index: 2000;
         text-align: center;
         cursor: pointer;
+        ${respond(DeviceType.smallTablet, `
+             top: 2rem;
+             right: 2rem;
+         
+         `)}
      }
      
      .nav-icon {

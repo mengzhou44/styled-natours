@@ -1,11 +1,13 @@
 import  styled from 'styled-components'
+import { DeviceType, respond } from '../_styles/media'
 import { greyDark3, greyLight1, greyLight2, primary } from '../_styles/variables'
  
 
 const Footer = styled.footer`
      background-color: ${greyDark3};
-     min-height: 20rem;
-
+     padding: 5rem 0; 
+    
+     
      .row {
          width: 100%; 
      }
@@ -24,11 +26,16 @@ const Footer = styled.footer`
         }
      }
      
+
      ul {
 
          border-top: 1px solid ${greyLight2};
          padding-top: .5rem; 
          display: inline-block; 
+
+         ${respond(DeviceType.smallTablet, `            
+            width: 100%; 
+       `)}
      }
 
      li {
@@ -73,8 +80,6 @@ const Footer = styled.footer`
              box-shadow: 0 1rem 2rem rgba(0,0,0, .4);
          }
      }
-
-  
 
 `
 

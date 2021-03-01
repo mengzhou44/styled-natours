@@ -1,5 +1,6 @@
 $grid-width: 114rem;
 $gutter-vertical: 8rem;
+$gutter-vertical-small: 6rem;
 $gutter-horizontal: 6rem;
 
 @mixin clearfix {
@@ -14,18 +15,34 @@ $gutter-horizontal: 6rem;
     max-width: $grid-width;
     margin: 0 auto;
 
+    @media only screen and (max-width: 900px ) { 
+        max-width: 60rem; 
+    }
+
     &:not(:last-child) {
         margin-bottom: $gutter-vertical;
+        @media only screen and (max-width: 900px ) { 
+            margin-bottom: $gutter-vertical-small; 
+        }
     }
     
     @include clearfix;
 
     [class^="col-"] {
         float: left;
-
+          
         &:not(:last-child) {
             margin-right: $gutter-horizontal;
+            @media only screen and (max-width: 900px ) { 
+                margin-right: 0; 
+                margin-bottom: $gutter-vertical-small; 
+            }
         }
+
+        @media only screen and (max-width: 900px ) { 
+            width: 100% !important; 
+        }
+
     }
 
     .col-1-of-2 {

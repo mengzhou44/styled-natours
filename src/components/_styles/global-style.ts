@@ -8,10 +8,6 @@ import './basic-icons.css'
 
  
 const GlobalStyle = createGlobalStyle`
-
-
-
-
   *,
   *::before,
   *::after
