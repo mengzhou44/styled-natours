@@ -86,7 +86,7 @@ const Footer = styled.footer`
 export default function Wrapper() {
     return <Footer>
         <div className='logo'>
-            <img src='./images/logo-white.png' alt='logo' />
+            <img srcSet='./images/logo-green-1x.png 1x, ./images/logo-green-2x.png 2x' alt='logo' />
         </div>
 
         <div className='row'>
